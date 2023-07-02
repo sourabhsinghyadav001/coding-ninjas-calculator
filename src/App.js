@@ -6,7 +6,8 @@ function App() {
 
   const evaluate = () => {
     try {
-      const output = eval(`() => ${input}`)();
+      // eslint-disable-next-line
+      const output = new Function(`return ${input}`)();
       return output;
     } catch (err) {
       if (input === "") return "";
